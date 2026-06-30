@@ -199,7 +199,7 @@ db.proizvod.aggregate([
 ])
 ```
 
-## 5. Na evropskim tržištima (valuta EUR) pronaći top 3 zemlje sa najvećim brojem različitih dostupnih veličina obuće koje su dostupne u kategoriji FOOTWEAR.
+## 5. Za svaki pol kom je namenjen proizvod (gender_segment), na evropskim tržištima (region: Europe), pronaći koja je najzastupljenija kategorija proizvoda (category) po broju proizvoda.
 
 ![Rezultat upita](./RezultatiUpitaBezOptimizacija/peti.png)
 
@@ -214,36 +214,31 @@ db.proizvod.aggregate([
     }
   },
   {
-    $unwind: "$variants"
-  },
-  {
     $match: {
-      "trziste_info.currency": "EUR",
-      "availability.available_market": true,
-      "variants.available": true,
-      "category": "FOOTWEAR"
+      "trziste_info.region": "Europe",
+      "availability.available_market": true
     }
   },
   {
+    $unwind: "$gender_segment"
+  },
+  {
     $group: {
-      _id: "$market_id",
-      dostupneVelicine: { $addToSet: "$variants.size_label" }
+      _id: { pol: "$gender_segment", kategorija: "$category" },
+      brojProizvoda: { $sum: 1 }
     }
   },
   {
     $project: {
       _id: 0,
-      zemlja: "$_id",
-      brojDostupnihVelicina: { $size: "$dostupneVelicine" }
+      pol_kategorija: "$_id",
+      brojProizvoda: 1
     }
   },
   {
     $sort: {
-      brojDostupnihVelicina: -1
+      brojProizvoda: -1
     }
-  },
-  {
-    $limit: 3
   }
 ])
 ```
