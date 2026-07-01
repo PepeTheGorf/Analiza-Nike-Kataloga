@@ -247,8 +247,4 @@ db.proizvod.aggregate([
 
 Bez optimizacije:
 
-![Vreme izvršavanja — bez optimizacije](./RezultatiUpitaBezOptimizacija/vremena_izvrsavanja.png)
-
-Sa optimizacijom:
-
-![Vreme izvršavanja — sa optimizacijom](./RezultatiUpitaSaOptimizacijama/vreme_izvrsavanja_opt.png)
+![Vreme izvršavanja bez optimizacije](./RezultatiUpitaBezOptimizacija/vremena_izvrsavanja.png)
