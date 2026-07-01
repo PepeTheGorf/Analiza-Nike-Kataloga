@@ -1,6 +1,6 @@
-# Nike Global Catalogue — MongoDB (SBP)
+# Nike Global Catalogue - MongoDB (SBP)
 
-Skup podataka: [Nike Global Catalogue 2026](https://www.kaggle.com/datasets/bsthere/nike-global-catalogue-2026/data) — Nike proizvodi sa zvaničnih web prodavnica u 45 zemalja.
+Skup podataka: [Nike Global Catalogue 2026](https://www.kaggle.com/datasets/bsthere/nike-global-catalogue-2026/data) - Nike proizvodi sa zvaničnih web prodavnica u 45 zemalja.
 
 Baza: `sbp-nike` · Kolekcije: `proizvod`, `cenovnik`, `trziste`
 
@@ -13,16 +13,11 @@ Baza: `sbp-nike` · Kolekcije: `proizvod`, `cenovnik`, `trziste`
 | Kolekcija | Šta sadrži |
 |-----------|------------|
 | **trziste** | Podaci o tržištu (država, region, valuta). |
-| **proizvod** | Pojava proizvoda u katalogu jedne zemlje — kategorija, sportovi, dostupnost, varijante (veličine). |
+| **proizvod** | Pojava proizvoda u katalogu jedne zemlje - kategorija, sportovi, dostupnost, varijante (veličine). |
 | **cenovnik** | Cene i popusti za istu pojavu proizvoda na tržištu (`_id` = `market_id:product_id`, kao kod `proizvod`). |
-
-**Veze:** `proizvod.market_id` → `trziste._id` · `proizvod` ↔ `cenovnik` (1:1, isti `_id`)
-
-Detalji, upiti i rezultati: folder [`Boris/`](Boris/)
-
 ---
 
-## Boris Bodvanski — Menadžer proizvoda
+## Boris - menadžer proizvoda
 
 Agregacioni upiti (tekst):
 
